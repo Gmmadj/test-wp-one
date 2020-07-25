@@ -26,6 +26,8 @@ function test_wp_one_setup()
 		'video',
 		'gallery',
 	] );
+
+	register_nav_menu( 'primary', 'Главное меню' );
 }
 
 add_action('after_setup_theme', 'test_wp_one_setup');
