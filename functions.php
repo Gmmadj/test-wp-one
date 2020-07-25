@@ -1,8 +1,39 @@
 <?php 
 
+function test_wp_one_setup()
+{
+	load_theme_textdomain('test_wp_one');
+
+	add_theme_support('title-tag');
+	add_theme_support('custom-logo', [
+		'height' => 31,
+		'width'  => 134,
+		'flex-height' => true,
+	]);
+	add_theme_support('post-thumbnails');
+	set_post_thumbnail_size(720, 446);
+
+	add_theme_support( 'html5', [
+		'search_form',
+		'comment-form',
+		'comment-list',
+		'gallery',
+		'caption',
+	] );
+	add_theme_support( 'post-formats', [
+		'aside',
+		'image',
+		'video',
+		'gallery',
+	] );
+}
+
+add_action('after_setup_theme', 'test_wp_one_setup');
+
 add_action( 'wp_enqueue_scripts', 'test_wp_one_scripts' );
 
-function test_wp_one_scripts() {
+function test_wp_one_scripts() 
+{
 
 	// Style
 	wp_enqueue_style( 'bootstrap', get_template_directory_uri() .'/css/bootstrap.min.css' );

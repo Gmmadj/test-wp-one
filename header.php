@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="">
-    <title>App Layers</title>
     
     <!-- favicon Icon -->
     <!--<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
@@ -32,7 +31,7 @@
         	<div class="header_top">
         		<div class="col-md-2">
             		<div class="logo_img">
-						<a href="#"><img src="images/logo.png" alt="logoimage"></a>
+						<a href="#"><?php the_custom_logo() ?></a>
 					</div>
 				</div>
 					
