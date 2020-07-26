@@ -43,17 +43,8 @@
 									
 					<?php endwhile ?>
 				<?php endif ?>						
-				
-				<div class="next_page">
-          			<ul class="page-numbers">
-						<li><span class="page-numbers current">1</span></li>
-						<li><a href="#" class="page-numbers">2</a></li>
-						<li><a href="#" class="page-numbers">3</a></li>
-						<li><a href="#" class="page-numbers">4</a></li>
-						<li><a href="#" class="next page-numbers">Next</a></li>
-					</ul>
-       			 </div>
-			
+				<?php test_wp_one_pagination() ?>
+
 			</div>
 				<?php get_sidebar() ?>
 			</div>
