@@ -55,8 +55,9 @@ add_filter('excerpt_more', function($more) {
 	return '...';
 });
 
-// Breadcrumb - Хлебные крошки
-
+/**
+ * Breadcrumb - Хлебные крошки
+ */
 function test_wp_one_the_breadcrumb() {
 	global $post;
 	if(!is_home()){ 
@@ -130,8 +131,9 @@ function test_wp_one_the_breadcrumb() {
 	}
 }
 
-// Pagination - Нумерация страниц
-
+/**
+ * Pagination - Нумерация страниц
+ */
 function test_wp_one_pagination( $args = array() ) {
     
     $defaults = array(
@@ -215,3 +217,75 @@ function test_wp_one_pagination( $args = array() ) {
     if ( isset($echo) )
         echo $args['before_output'] . $echo . $args['after_output'];
 }
+
+/**
+ * New Setting Customize
+ */
+function test_wp_one_customize_register( $wp_customize )
+{
+	/**
+	 * Social Section
+	 */
+	$wp_customize->add_section('social_section', [
+		'title'    => __('Social setting', 'test_wp_one') ,
+		'priority' => 30,
+	]);
+
+	$wp_customize->add_setting('header_social', [
+		'default'   => __('Наши фавариты в мобильных приложениях', 'test_wp_one'),
+		'transport' => 'refresh',	
+	]);
+
+	$wp_customize->add_setting('facebook_social', [
+		'default'   => __('URL facebook', 'test_wp_one'),
+		'transport' => 'refresh',	
+	]);
+
+	$wp_customize->add_setting('twitter_social', [
+		'default'   => __('URL twitter', 'test_wp_one'),
+		'transport' => 'refresh',	
+	]);
+
+	$wp_customize->add_control('header_social', [
+		'label' => __('Social header in footer', 'test_wp_one'),
+		'section' => 'social_section',
+		'settings' => 'header_social',
+		'type' => 'text',
+	]);
+
+	$wp_customize->add_control('facebook_social', [
+		'label' => __('URL facebook', 'test_wp_one'),
+		'section' => 'social_section',
+		'settings' => 'facebook_social',
+		'type' => 'text',
+	]);
+
+	$wp_customize->add_control('twitter_social', [
+		'label' => __('URL twitter', 'test_wp_one'),
+		'section' => 'social_section',
+		'settings' => 'twitter_social',
+		'type' => 'text',
+	]);
+
+	/**
+	 * Footer Setting Section
+	 */
+	$wp_customize->add_section('footer_setting_section', [
+		'title'    => __('Footer setting', 'test_wp_one') ,
+		'priority' => 30,
+	]);
+
+	$wp_customize->add_setting('footer_copy_social', [
+		'default'   => __('2016 &copy; Copyright Applayers. All rights Reserved. Powered By Free', 'test_wp_one', 'test_wp_one'),
+		'transport' => 'refresh',	
+	]);
+
+	$wp_customize->add_control('twitter_social', [
+		'label' => __('Footer copy'),
+		'section' => 'footer_setting_section',
+		'settings' => 'footer_copy_social',
+		'type' => 'text',
+	]);
+
+}
+add_action('customize_register', 'test_wp_one_customize_register');
