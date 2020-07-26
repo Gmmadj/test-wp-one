@@ -303,7 +303,7 @@ function test_wp_one_widgets_init()
 		'name'          => __( 'Main Sidebar', 'test_wp_one' ),
 		'id'            => 'sidebar-1',
 		'description'   => 'One sidebar',
-		'before_widget' => '<div id="%1$s" class="sidebar_wrap widget_categories">',
+		'before_widget' => '<div id="%1$s" class="sidebar_wrap %2$s">',
 		'after_widget'  => '</div>',
 		'before_title'  => '<div class="side_bar_heading">
 								<h6>',
@@ -317,6 +317,9 @@ function test_wp_one_widgets_init()
 
 add_action( 'widgets_init', 'test_wp_one_widgets_init' );
 
+/**
+ * New Walker Category
+ */
 function test_wp_one_widget_categories($args)
 {
 	$walker = new Walker_Categories_test_wp_one();
@@ -478,3 +481,18 @@ class Walker_Categories_test_wp_one extends Walker_Category
 		}
 	}
 }
+
+/**
+ * Tag Cloud Filter
+ */
+function test_wp_one_tag_cloud( $args )
+{
+	$args['smallest'] 	= 14;
+	$args['largest'] 	= 14;
+	$args['unit'] 		= 'px';
+	$args['format'] 	= 'list';
+
+	return $args;	
+}
+
+add_filter( 'widget_tag_cloud_args', 'test_wp_one_tag_cloud' );
