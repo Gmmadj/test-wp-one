@@ -1,5 +1,14 @@
 <?php 
 
+require_once get_template_directory() .'/inc/class-test-wp-one-recent-post-widget.php';
+
+function test_wp_one_register_widget(  )
+{
+	register_widget( 'test_wp_one_Widget_Recent_Posts' );
+}
+
+add_action( 'widgets_init', 'test_wp_one_register_widget' );
+
 function test_wp_one_setup()
 {
 	load_theme_textdomain('test_wp_one');
