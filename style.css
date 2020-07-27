@@ -401,6 +401,14 @@ margin-bottom: 40px;
   color: rgba(255, 255, 255, 0.5);
 }
 
+.news_sletter .side_bar_heading h6 {
+  color:#fff;
+}
+
+.news_sletter .side_bar_heading h6::after {
+  color: rgba(255, 255, 255, 0.5);
+}
+
 
 .news_sletter p {
   font-size: 14px;

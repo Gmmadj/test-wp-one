@@ -1,10 +1,12 @@
 <?php 
 
 require_once get_template_directory() .'/inc/class-test-wp-one-recent-post-widget.php';
+require_once get_template_directory() .'/inc/class-test-wp-one-subscribe-form.php';
 
 function test_wp_one_register_widget(  )
 {
 	register_widget( 'test_wp_one_Widget_Recent_Posts' );
+	register_widget( 'test_wp_one_Widget_Subscribe' );
 }
 
 add_action( 'widgets_init', 'test_wp_one_register_widget' );
